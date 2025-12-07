@@ -1,14 +1,17 @@
-import { Button } from "src/components/ui/button";
+"use client";
+
+import { authClient } from "@/lib/auth-client";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
+  const handleLogout = async () => {
+    await authClient.signOut();
+    alert("signed out");
+  };
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 ">
       <h1 className="text-4xl font-bold ">ahhh</h1>
-      <Button variant="outline">click me!</Button>
-      <Button variant="ghost">click</Button>
-      <Button variant="secondary">click me!</Button>
-      <Button variant="link">click</Button>
-      <Button variant="destructive">click me!</Button>
+      <Button onClick={handleLogout}>Sig Out</Button>
     </div>
   );
 }

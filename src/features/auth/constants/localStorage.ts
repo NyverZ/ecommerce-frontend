@@ -1,0 +1,1 @@
+export const LOCAL_STORAGE_BETTER_TOKEN_KEY = "frontend-better-auth-token" 
