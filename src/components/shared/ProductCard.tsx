@@ -24,7 +24,7 @@ export const ProductCard = (props: ProductCardPage) => {
   };
   return (
     <Link href={`/products/${props.id}`}>
-      <div className="rounded-xl border flex flex-col gap-4 aspect-[4/3] overflow-clip">
+      <div className="rounded-xl border flex flex-col gap-4 aspect-4/3 overflow-clip">
         <div className="relative w-full h-full ">
           <Image
             src={placeholderImageUrl}
