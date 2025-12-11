@@ -10,7 +10,7 @@ export default function Home() {
   };
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 ">
-      <h1 className="text-4xl font-bold ">ahhh</h1>
+      <h1 className="text-4xl font-bold ">...</h1>
       <Button onClick={handleLogout}>Sig Out</Button>
     </div>
   );
