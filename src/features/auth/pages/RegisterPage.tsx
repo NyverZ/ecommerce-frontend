@@ -2,11 +2,11 @@
 
 import { Atom } from "react-loading-indicators";
 import { authClient } from "@/lib/auth-client";
-import LoginForm from "../components/LoginForm";
+import RegisterForm from "../components/RegisterForm";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const router = useRouter();
   const { data: session, isPending } = authClient.useSession();
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center w-full">
-      <LoginForm />
+      <RegisterForm />
     </div>
   );
 }

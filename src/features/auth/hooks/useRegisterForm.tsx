@@ -1,41 +1,44 @@
 import { useForm } from "react-hook-form";
-import { LoginFormSchema, loginFormSchema } from "../forms/login";
+import { RegisterFormSchema, registerFormSchema } from "../forms/register";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { authClient, getErrorMessage } from "@/lib/auth-client";
 import { toast } from "sonner";
 import { LOCAL_STORAGE_BETTER_TOKEN_KEY } from "../constants/localStorage";
 
-export const useLoginForm = () => {
-  const form = useForm<LoginFormSchema>({
+export const useRegisterForm = () => {
+  const form = useForm<RegisterFormSchema>({
     defaultValues: {
       email: "",
       password: "",
-      
+      confirmPassword: "",
     },
-    resolver: zodResolver(loginFormSchema),
+    resolver: zodResolver(registerFormSchema),
   });
-  const onsubmit = async (data: LoginFormSchema) => {
+
+  const onsubmit = async (data: RegisterFormSchema) => {
     try {
-      const { error, data: authResponseData } = await authClient.signIn.email({
+      const { error, data: authResponseData } = await authClient.signUp.email({
         email: data.email,
         password: data.password,
+        name: data.name,
       });
-      //handle auth errors
+
       if (error?.code) {
         toast.error(getErrorMessage(error.code));
         return;
       }
+
       if (authResponseData?.token) {
         localStorage.setItem(
           LOCAL_STORAGE_BETTER_TOKEN_KEY,
           authResponseData.token
         );
-        toast.success("Login susscesful");
+        toast.success("Registration successful");
       }
     } catch (error) {
-      //handle non-auth errors
       toast.error((error as Error).message);
     }
   };
+
   return { form, onsubmit };
 };

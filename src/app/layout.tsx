@@ -13,6 +13,7 @@ const geistSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
 });
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,9 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistSans.variable} font-sans antialiased pb-20`}
-      >
+      <body className={`${geistSans.variable} font-sans antialiased pb-20`}>
         <Navbar />
         {children}
         <Toaster />
