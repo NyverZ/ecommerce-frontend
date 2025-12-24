@@ -14,7 +14,7 @@ export const useLoginForm = () => {
     },
     resolver: zodResolver(loginFormSchema),
   });
-  const onsubmit = async (data: LoginFormSchema) => {
+  const onSubmit = async (data: LoginFormSchema) => {
     try {
       const { error, data: authResponseData } = await authClient.signIn.email({
         email: data.email,
@@ -37,5 +37,5 @@ export const useLoginForm = () => {
       toast.error((error as Error).message);
     }
   };
-  return { form, onsubmit };
+  return { form, onSubmit };
 };

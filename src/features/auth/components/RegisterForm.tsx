@@ -16,7 +16,7 @@ import Link from "next/link";
 import { useRegisterForm } from "../hooks/useRegisterForm";
 
 export default function RegisterForm() {
-  const { form, onsubmit } = useRegisterForm();
+  const { form, onSubmit } = useRegisterForm();
   const { data: session } = authClient.useSession();
   return (
     <Card className="w-full max-w-md">
@@ -27,7 +27,7 @@ export default function RegisterForm() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form className="space-y-4" onSubmit={form.handleSubmit(onsubmit)}>
+        <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
           <Controller
             control={form.control}
             name="email"

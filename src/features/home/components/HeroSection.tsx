@@ -34,7 +34,7 @@ export const HeroSection = () => {
           delivered to your door
         </p>
 
-        <Link href="/produts">
+        <Link href="/produts" className="w-fit">
           <Button variant="default" size="lg">
             Shop Now
             <ArrowRightIcon className="size-4" />

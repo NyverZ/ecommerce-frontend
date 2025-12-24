@@ -15,7 +15,7 @@ export const useRegisterForm = () => {
     resolver: zodResolver(registerFormSchema),
   });
 
-  const onsubmit = async (data: RegisterFormSchema) => {
+  const onSubmit = async (data: RegisterFormSchema) => {
     try {
       const { error, data: authResponseData } = await authClient.signUp.email({
         email: data.email,
@@ -38,7 +38,8 @@ export const useRegisterForm = () => {
     } catch (error) {
       toast.error((error as Error).message);
     }
+
   };
 
-  return { form, onsubmit };
+  return { form, onSubmit };
 };

@@ -12,7 +12,7 @@ const placeholderImageUrl =
 type ProductCardPage = {
   id: string;
   name: string;
-  category: string;
+  category?: string;
   description: string;
   price: number;
   ImageUrl?: string;
@@ -27,7 +27,7 @@ export const ProductCard = (props: ProductCardPage) => {
       <div className="rounded-xl border flex flex-col gap-4 aspect-4/3 overflow-clip">
         <div className="relative w-full h-full ">
           <Image
-            src={placeholderImageUrl}
+            src={props.ImageUrl ?? placeholderImageUrl}
             unoptimized
             fill
             className="object-cover"
@@ -37,7 +37,9 @@ export const ProductCard = (props: ProductCardPage) => {
         <div className="flex flex-col gap-4 p-4">
           {/* Title and Category */}
           <div className="space-y-1">
-            <p className="text-sm text-muted-foreground">{props.category}</p>
+            <p className="text-sm text-muted-foreground">
+              {props.category ?? "Uncategorized"}
+            </p>
             <h3 className="text-lg font-bold">{props.name}</h3>
           </div>
 

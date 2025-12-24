@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function LoginForm() {
-  const { form, onsubmit } = useLoginForm();
+  const { form, onSubmit } = useLoginForm();
   const { data: session } = authClient.useSession();
   return (
     <Card className="w-full max-w-md">
@@ -26,7 +26,7 @@ export default function LoginForm() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form className="space-y-4" onSubmit={form.handleSubmit(onsubmit)}>
+        <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
           <Controller
             control={form.control}
             name="email"
